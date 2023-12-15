@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" actions={% url "receipts"%}>
+    {% csrf_token %}
+    <table class="table m-3">
+        <thead>
+            <th>Number</th>
+            <th>Store</th>
+            <th>Total amount</th>
+            <th>actions</th>
+    </thead>
+    
+    <tbody>
+    {% for receipt in receipts%}
+    
+        <tr>      
+            <td>
+                {{forloop.counter}}
+            </td>
+            <td>
+                {{ receipt.store }}
+            </td>
+            <td>
+                {{receipt.total_amount}}
+            </td>
+            <td>
+                <a class="btn btn-info m-3" href={% url 'receipt-details' pk=receipt.id %}>detail</a>
+                <a class="btn btn-info m-3" href={% url 'receipt-edit' pk=receipt.id %}>edit</a>
+                <button formnovalidate name="delete" class="btn btn-warning" value={{receipt.id}}> delete </button>
+            </td>
+            
+        </tr>
+    
+    {% endfor %}
+    </tbody>
+    </table>
+    
+</form>
+
+{% endblock %}

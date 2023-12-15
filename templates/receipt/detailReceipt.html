@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <p> authout : {{receipt.author}}</p>
+    <p> store : {{receipt.store}} </p>
+    <p> items : {{receipt.item}} </p>
+    <p> data : {{receipt.created_at}}</p>
+    <p> total : {{receipt.total_amount}} </p>
+{% endblock %}
