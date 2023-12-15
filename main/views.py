@@ -104,7 +104,7 @@ def signup(request):
             user = form.save()
             print(type(user))
             login(request ,user)
-            return redirect("/home")
+            return redirect("/receipts")
         
     # create an empty signup form
     # render the form
