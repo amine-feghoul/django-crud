@@ -24,7 +24,7 @@ def listView(request):
             Receipt.objects.get(author=request.user.id,id=pk).delete()
     receipts = Receipt.objects.filter(author = request.user)
    
-    return render(request,"receipt/listReceipt.html",{"receipts":receipts})
+    return render(request,"receipt/listReceipt.html",{"receipts":receipts},status=200)
 
 @login_required(login_url="/login/")
 def detailView(request,pk):    
